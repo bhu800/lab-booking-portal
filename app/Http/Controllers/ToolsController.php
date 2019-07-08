@@ -126,4 +126,19 @@ class ToolsController extends Controller
         // echo Tools::get();
         return redirect("/");
     }
+
+    // adding tools via Excel 
+
+    public function export($type) 
+    {
+        return Excel::download(new ToolsExport, 'tools.'.$type);
+    }
+
+    public function import() 
+    {
+        Excel::import(new ToolsImport,request()->file('file'));
+        
+        return back();
+    }
+
 }

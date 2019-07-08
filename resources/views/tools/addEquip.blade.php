@@ -32,6 +32,20 @@
         font-size: 15px;">
   </form>
 
+  <div class="card-header">
+    <h3>Import/Export data via Excel Sheet</h3>
+  </div>
+  <div class="card-body">
+    <form action="{{ url('import') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <input type="file" name="file" class="form-control">
+        <br>
+        <button class="btn btn-success">Import Tools Data</button>
+        <a class="btn btn-warning" href="{{ url('export/xlsx') }}">Export Tools Data (xlsx)</a>
+        <a class="btn btn-warning" href="{{ url('export/xls') }}">Export Tools Data (xls)</a>
+        <a class="btn btn-warning" href="{{ url('export/csv') }}">Export Tools Data (csv)</a>
+  </form>
+
 @stop
 @section('extrascript')
   <!-- <link rel="stylesheet" href="./css/style.css" type="text/css"> -->

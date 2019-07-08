@@ -81,3 +81,6 @@ Route::get('admin', ['middleware' => 'admin', function () {
     return Redirect("/");
 }]);
 
+// adding tools via excelsheet
+Route::get('export/{type}', 'ToolsController@export');
+Route::post('import', 'ToolsController@import');
